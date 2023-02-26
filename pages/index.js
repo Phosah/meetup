@@ -1,6 +1,6 @@
+// import { useEffect, useState } from "react";
 import MeetupList from "../components/meetups/MeetupList";
-// import Photo from "../assets/photo-1.jpg";
-// import Photo2 from "../assets/photo-2.jpg";
+
 const DUMMY_MEETUPS = [
   {
     id: "m1",
@@ -28,7 +28,21 @@ const DUMMY_MEETUPS = [
   },
 ];
 
-function HomePage() {
-  return <MeetupList meetups={DUMMY_MEETUPS} />;
+function HomePage(props) {
+  //   const [loadedMeetups, setLoadedMeetups] = useState([]);
+
+  //   useEffect(() => {
+  //     setLoadedMeetups(DUMMY_MEETUPS);
+  //   }, []);
+  return <MeetupList meetups={props.meetups} />;
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+    revalidate: 10,
+  };
 }
 export default HomePage;
