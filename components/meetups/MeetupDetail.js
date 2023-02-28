@@ -5,7 +5,7 @@ function MeetupDetail(props) {
     <section className={classes.detail}>
       <img src={props.image} alt="Meetup Image" />
       <h1>{props.title}</h1>
-      <adddress>{props.address}</adddress>
+      <address>{props.address}</address>
       <p>{props.description}</p>
     </section>
   );
